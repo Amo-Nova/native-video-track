@@ -2,7 +2,15 @@
 
 Unofficial video integration for **Bitwig Studio 6.1.7 on Windows x64**.
 
-By **Amo Nova**. This repository includes the video MOD, persistent integration, Windows installer, build tools and test sources. It is not affiliated with or endorsed by Bitwig GmbH.
+Created collaboratively by **Amo Nova** and **OpenAI Codex**, an AI coding assistant. This repository includes the video MOD, persistent integration, Windows installer, build tools and test sources. It is not affiliated with or endorsed by Bitwig GmbH.
+
+## Project contributors
+
+**Amo Nova — creator and maintainer.** Product direction, music-to-picture workflow requirements, feature decisions, hands-on Bitwig testing and feedback, and community coordination.
+
+**OpenAI Codex — AI co-contributor.** Architecture and implementation, debugging and performance work, automated validation, build and installer tooling, and English source and release documentation. This work includes video import and timeline editing, audio/video synchronization, absolute-time mapping, picture markers, preview docking, project media collection and recovery, persistent Windows integration, and Patchbay Launcher packaging.
+
+The project was developed through that collaboration, using the third-party foundations credited in [CREDITS.txt](CREDITS.txt) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Project-owned source is released by Amo Nova under the [MIT License](LICENSE).
 
 | Component | Version |
 |---|---|

@@ -28,9 +28,22 @@ Gson — Google and contributors — JSON serialization
 https://github.com/google/gson
 JNA, Gson and the Java runtime are supplied by the user's Bitwig installation.
 
-Project work
-Video workflow, synchronization, media management, docking and persistent
-installation: Amo Nova, with OpenAI Codex assistance.
+Project contributors
+Amo Nova — creator and maintainer
+Product direction, music-to-picture workflow requirements, feature decisions,
+hands-on Bitwig testing and feedback, and community coordination.
+
+OpenAI Codex — AI coding assistant and co-contributor
+Architecture and implementation; debugging and performance work; automated
+validation; build and installer tooling; English source and release documentation.
+Contributions include video import and timeline editing, audio/video
+synchronization, absolute-time mapping, picture markers, preview docking,
+project media collection and recovery, persistent Windows integration,
+and Patchbay Launcher packaging.
+
+Developed collaboratively by Amo Nova and OpenAI Codex.
+Project-owned source: MIT License, copyright (c) 2026 Amo Nova.
+
 Windows installer interface: .NET Framework / Windows Forms (Microsoft).
 Inspiration, introduction and repository/Launcher packaging blueprint: Polarity.
 https://github.com/polarity/bitwig-mods
