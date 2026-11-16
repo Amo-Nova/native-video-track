@@ -41,6 +41,12 @@ def read_manifest():
 
 def main():
     manifest = read_manifest()
+    runtime = (ROOT / MOD_ID / 'src/local/bitwig/video/PlayerRuntime.java').read_text(encoding='utf-8')
+    lock = json.loads((ROOT / 'dependencies.lock.json').read_text(encoding='utf-8'))
+    for item in lock['files']:
+        if item['root'] == 'mpv_root':
+            require('"'+item['path']+'", "'+item['sha256']+'"' in runtime, 'Runtime player pin differs from dependency lock')
+    require((ROOT / MOD_ID / 'package/player/README.txt').is_file(), 'First-use download instructions missing')
     license_text = (ROOT / 'LICENSE').read_text(encoding='utf-8')
     require('MIT License' in license_text and 'Copyright (c) 2026 Amo Nova' in license_text, 'Project license mismatch')
     for name in ('Patchbay-LICENSE.txt', 'Patchbay-UPSTREAM-NOTICES.md'):

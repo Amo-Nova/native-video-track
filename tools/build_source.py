@@ -104,7 +104,7 @@ def mod(paths):
     stamp.write_text(STOCK + '\n', encoding='ascii')
     record(build=builder.BUILD)
 
-def prepare(paths):
+def prepare(paths, mod_zip=None):
     build = Path(state()['build'])
     candidate = build / 'prepared-source'
     if candidate.exists():
@@ -113,7 +113,14 @@ def prepare(paths):
         shutil.copytree(paths['patchbay_root'] / name, candidate / name)
     for name in FRAMEWORKS:
         shutil.copytree(paths['patchbay_root'] / 'mods' / name, candidate / 'mods' / name)
-    shutil.copytree(ROOT / 'out/video-preview', candidate / 'mods/video-preview')
+    if mod_zip is None:
+        shutil.copytree(ROOT / 'out/video-preview', candidate / 'mods/video-preview')
+    else:
+        import zipfile
+        from package_launcher import validate
+        validate(mod_zip)
+        with zipfile.ZipFile(mod_zip) as archive:
+            archive.extractall(candidate / 'mods')  # Entire entry list was checked before extraction.
     (candidate / 'config').mkdir()
     (candidate / 'config/portable').write_text('Isolated source build only.\n', encoding='utf-8')
     args = [str(paths['java_home'] / 'bin/java.exe'), '-Dfile.encoding=UTF-8', '-Duser.language=en',
@@ -160,13 +167,19 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('stage', choices=('check', 'mod', 'prepare', 'package', 'exe', 'verify', 'all'))
     parser.add_argument('--config', type=Path, default=ROOT / 'build.config.local.json')
+    parser.add_argument('--mod-zip', type=Path, help='For prepare: use the validated public Launcher ZIP instead of local bundled output')
     args = parser.parse_args()
+    if args.mod_zip is not None and args.stage != 'prepare':
+        parser.error('--mod-zip is only supported by the prepare stage')
     paths = config(args.config.resolve())
     check(paths)
     stages = ('mod', 'prepare', 'package', 'exe', 'verify') if args.stage == 'all' else (args.stage,)
     for name in stages:
         if name != 'check':
-            globals()[name](paths)
+            if name == 'prepare':
+                prepare(paths,args.mod_zip)
+            else:
+                globals()[name](paths)
 
 if __name__ == '__main__':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')

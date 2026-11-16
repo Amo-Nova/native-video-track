@@ -4,6 +4,8 @@
 
 Other Java tests cover real mpv decoding, scrubbing, confirmed-frame reuse, long-GOP final targets, media extraction and layout. Configure local JDK/dependency paths and generate the required synthetic media first. Generators are `create_media.py`, `create_stage3_media.py` and `create_compatibility_media.py`; FFmpeg comes from PATH or `NVT_FFMPEG`. Large-file and 4K tests require additional time and disk space and are not run automatically.
 
+`python tools/test_player_runtime.py` compiles `PlayerRuntimeTest` with the actual player setup implementation. It checks first use, offline/fresh-provider reuse, existing bundled player reuse, one download across concurrent threads and JVM processes, interrupted download, wrong archive/extracted hashes, cancellation, repair and preservation of unrelated cache data. `--online` additionally exercises the production Java HTTPS download and Windows tar extraction against the pinned upstream release. Both modes use isolated workspace caches and leave user projects and the normal player cache untouched.
+
 `NativeAcceptanceAgent.java`, `native-agent/` and `run_native_acceptance.py` are experimental host drivers. They connect to and operate a live Bitwig test process; historical scripts may assume that only one test host exists. Use a dedicated disposable host and test project, inspect the command before running it, and do not use an unsaved working project.
 
 `integration/tests/` and `integration/exe/test_exe.py` exercise installation and restoration. Their fixtures expect a local original JAR or a verified backup. Configure isolated paths before use. File-association tests use an isolated HKCU registry tree.

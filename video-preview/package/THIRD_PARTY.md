@@ -14,4 +14,4 @@
 - Gson and JNA are loaded from the user's existing Bitwig `libs.jar`. That jar is not copied into the MOD.
 - The installed Bitwig runtime supplies Java for the control window. No Bitwig application code or runtime is included in the MOD folder.
 
-Project-owned implementation source is MIT licensed, copyright (c) 2026 Amo Nova. Third-party components retain their own licenses. This is a local build candidate; a public binary release requires the complete third-party source/license materials described in the repository RELEASING.md.
+Project-owned implementation source is MIT licensed, copyright (c) 2026 Amo Nova. Third-party components retain their own licenses. The public Launcher MOD ZIP contains no third-party player binaries. First use downloads the pinned archive directly from the upstream release above and verifies its SHA-256 plus individual file hashes before use. Only the three runtime files are extracted; no upstream installer/updater scripts run. See `player/README.txt` for cache and retry behavior, and the repository RELEASING.md for the separate locally bundled EXE release boundary.

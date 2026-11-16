@@ -62,6 +62,10 @@ The legacy builders retain original development defaults. Use `tools/build_sourc
 
 After the `mod` stage, run `python tools/package_launcher.py`. This produces a local candidate ZIP and checksum under `releases/launcher/`; it does not publish them. Existing candidate files are never overwritten. To build another candidate of the same version for review, use a fresh `--output <directory>`.
 
+The public ZIP deliberately excludes the locally bundled mpv executable and DLLs. To prepare the actual first-use-download package, use `python tools/build_source.py prepare --mod-zip releases/launcher/video-preview-0.5.0-dev.3.zip`. Without `--mod-zip`, preparation retains the local bundled output for the separate EXE workflow. Neither command modifies the installed host.
+
+Run `python tools/test_player_runtime.py` for isolated failure, checksum, cancellation, cache recovery and concurrency tests. Add `--online` to also download the exact pinned upstream archive, extract its three allowed files and check offline reuse. These tests use new workspace caches under `build/player-<timestamp>/`, never the normal user cache or projects. The online test requires GitHub access and Windows `tar.exe`.
+
 For the actual Launcher archive tests, obtain the official [Launcher v0.9.2 source](https://github.com/arius77R/patchbay-launcher/tree/v0.9.2), then run:
 
 ```text

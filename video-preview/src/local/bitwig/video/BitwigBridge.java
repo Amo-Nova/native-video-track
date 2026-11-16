@@ -93,7 +93,7 @@ public final class BitwigBridge {
     }
 
     static Snapshot snapshot() { return latest; }
-    static String playerStatus() { return engine == null ? "正在连接" : engine.status(); }
+    static String playerStatus() { String setup=PlayerRuntime.status();return !setup.isBlank()?setup:engine == null ? "正在连接" : engine.status(); }
     static String playerTime() { return engine == null ? "" : engine.timeStatus(); }
     static double frameRate(){return engine==null?0:engine.frameRate();}
     static void probe(Path file,java.util.function.BiConsumer<Double,Throwable> done){start();engine.probeInfo(file,done);}

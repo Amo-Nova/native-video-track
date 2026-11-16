@@ -108,8 +108,13 @@ final class MpvEngine implements AutoCloseable {
         if(connection!=null && attachedWindow!=dock.handle())disconnect();
         if (connection == null) {
             Files.createDirectories(logs);
+            Path readyPlayer=PlayerRuntime.ensure(player);
+            // First-use download can outlast a project/clip/layout change. Use the fresh clock.
+            BitwigBridge.Snapshot fresh=latest;
+            if(fresh==null || fresh.document()!=s.document() || !fresh.playback().equals(s.playback()) || !wanted || !dock.visible())return;
+            s=fresh;
             attachedWindow=dock.handle();
-            connection = new MpvConnection(player, logs.resolve("player.log"), true, attachedWindow);
+            connection = new MpvConnection(readyPlayer, logs.resolve("player.log"), true, attachedWindow);
             if (trace == null) {
                 trace = Files.newBufferedWriter(logs.resolve("sync-" + System.currentTimeMillis() + ".csv"), StandardCharsets.UTF_8);
                 trace.write("utc,project_s,target_s,player_s,error_s,playing,event\n");

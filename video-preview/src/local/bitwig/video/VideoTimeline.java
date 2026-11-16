@@ -103,6 +103,7 @@ final class VideoTimeline {
     private static void importOne(bMt origin,List<Path> files,int index,double seconds,AtomicBoolean cancel){
         Path source=files.get(index).toAbsolutePath(),destination=root(origin);
         importStatus="准备导入 · "+source.getFileName();
+        BitwigBridge.showPreview(); // Show first-use player download progress before a clip exists.
         WORK.execute(()->{
             try{
                 var asset=assets().prepare(destination,source,s->importStatus=s,cancel::get);remember(destination,asset);

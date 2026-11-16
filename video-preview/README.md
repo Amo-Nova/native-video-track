@@ -1,10 +1,12 @@
 # Native Video Track
 
-Version 0.5.0-dev.3 (packaging candidate), exact Windows x64 Bitwig Studio 6.1.7, Patchbay/BML 0.36.0-dev.14.
+Version 0.5.0-dev.3 (prerelease), exact Windows x64 Bitwig Studio 6.1.7, Patchbay/BML 0.36.0-dev.14.
 
 Use the root [build instructions](https://github.com/Amo-Nova/native-video-track/blob/main/BUILDING.md) to compile from source and [maintainer handoff](https://github.com/Amo-Nova/native-video-track/blob/main/HANDOFF.md) before modifying behavior. The current UI includes Chinese strings; this document describes their functions in English.
 
 ## Working with video
+
+The first video operation prepares the player in the background: it downloads the pinned mpv build directly from GitHub, verifies the archive and extracted files, then caches them under `%LOCALAPPDATA%/BitwigVideo/player/`. First use requires Internet access and Windows `tar.exe`. Progress appears in the preview/import status. If setup fails, existing clips are unchanged; fix the connection and repeat the operation. Once cached, playback works offline. The cache survives MOD updates and removal; a new computer needs its own first-use setup.
 
 Drag videos into the native arranger or use the video import action. Audio-bearing media creates a native AV clip with a waveform; silent media creates a video carrier. Batch files are placed sequentially. Bitwig plays the extracted audio and mpv remains muted.
 

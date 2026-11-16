@@ -47,6 +47,7 @@ final class MediaAssets {
         check(cancelled);Files.createDirectories(logs);
         source=source.toRealPath();
         var before=Files.readAttributes(source,BasicFileAttributes.class);
+        PlayerRuntime.ensure(player,progress,cancelled);
         String fingerprint=source+"\n"+before.size()+"\n"+before.lastModifiedTime().toMillis();
         String id=HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(fingerprint.getBytes(java.nio.charset.StandardCharsets.UTF_8))).substring(0,24);
         progress.accept("检查视频 · "+source.getFileName());
@@ -91,7 +92,8 @@ final class MediaAssets {
         Path partial=target.resolveSibling(target.getFileName()+"."+UUID.randomUUID()+".partial");
         Process process=null;
         try{
-            List<String> args=List.of(player.resolve("mpv.exe").toString(),"--no-config","--load-scripts=no","--no-video",
+            Path readyPlayer=PlayerRuntime.ensure(player,progress,cancelled);
+            List<String> args=List.of(readyPlayer.resolve("mpv.exe").toString(),"--no-config","--load-scripts=no","--no-video",
                 "--aid="+aid,"--sub=no","--audio-file-auto=no","--ytdl=no","--input-terminal=no","--terminal=no",
                 "--of=wav","--ofopts=rf64=auto","--oac=pcm_f32le","--audio-channels=auto",
                 "--af=lavfi=[aresample=async=1:first_pts=0]","--o="+partial,

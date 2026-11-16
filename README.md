@@ -14,16 +14,16 @@ The project was developed through that collaboration, using the third-party foun
 
 | Component | Version |
 |---|---|
-| Video MOD / Launcher packaging candidate | 0.5.0-dev.3 |
+| Video MOD / Launcher prerelease | 0.5.0-dev.3 |
 | Persistent integration | 1.0.0-dev.1 |
 | Windows EXE installer source | 1.0.0-dev.3 |
 | Patchbay/BML baseline | 0.36.0-dev.14 |
 
 ## Installation status
 
-This is the source release. A public installable Launcher ZIP has not been published yet; its player redistribution materials and release acceptance are tracked in [RELEASING.md](RELEASING.md). Do not use GitHub's automatic source ZIP as an installable MOD.
+Install the built `video-preview-0.5.0-dev.3.zip` from [GitHub Releases](https://github.com/Amo-Nova/native-video-track/releases). In Patchbay Launcher, add `Amo-Nova/native-video-track` as a Mods source and select Native Video Track and its dependencies. Do not use GitHub's automatic source ZIP as an installable MOD.
 
-The new source builds successfully, and its local candidate passes the actual Launcher 0.9.2 installer tests. See [current validation and remaining checks](VALIDATION_LAUNCHER.md).
+The MOD ZIP contains no third-party player binaries. First video use downloads the pinned mpv build directly from its upstream GitHub Release in the background, checks SHA-256 and caches it under `%LOCALAPPDATA%/BitwigVideo/player/`. First use requires Internet access and Windows `tar.exe`; later use works offline. Download failure leaves existing clips unchanged and can be retried. See [validation](VALIDATION_LAUNCHER.md).
 
 The Launcher route uses source `Amo-Nova/native-video-track` and stable MOD ID `video-preview`. The persistent EXE remains a separate route for ordinary Bitwig shortcuts. **Do not stack them on the same modified host installation.** See [installation and switching](RELEASING.md#persistent-exe-route-and-switching).
 
@@ -51,7 +51,7 @@ The preceding 0.5.0-dev.2 source snapshot was extracted into a fresh directory a
 
 | Path | Purpose |
 |---|---|
-| `video-preview/src/` | 22 Java files: timeline, media, synchronization, markers, rendering and controls |
+| `video-preview/src/` | 23 Java files: timeline, media, synchronization, markers, rendering, controls and player setup |
 | `video-preview/package/` | Menu resources, icon and third-party notice |
 | `integration/src/` | Persistent runtime bootstrap |
 | `integration/*.ps1`, `*.cmd` | Installation, status, backup, repair, restore and file association |

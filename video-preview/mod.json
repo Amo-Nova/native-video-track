@@ -5,7 +5,7 @@
     "name": "Native Video Track",
     "version": "0.5.0-dev.3",
     "author": "Amo Nova",
-    "description": "Native video clips, synchronized audio, docked preview and picture markers. Windows x64 / exact Bitwig 6.1.7 only.",
+    "description": "Native video editing, synchronized audio and docked preview. Windows x64 / Bitwig 6.1.7 only. Downloads verified mpv on first use.",
     "documentation": "readme"
   },
   "built_against": {"bitwig_version": "6.1.7", "platform": "windows", "architecture": "x64"},

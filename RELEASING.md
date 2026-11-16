@@ -2,15 +2,16 @@
 
 Repository: [Amo-Nova/native-video-track](https://github.com/Amo-Nova/native-video-track).
 
-The `0.5.0-dev.3` source introduces repository metadata and Launcher packaging. Video behavior is based on `0.5.0-dev.2`. It is a development build for **Windows x64 / exact Bitwig Studio 6.1.7**, using Patchbay `0.36.0-dev.14`. macOS and other host versions are not supported.
+The `0.5.0-dev.3` source introduces repository metadata, Launcher packaging and verified first-use player setup. Video behavior is based on `0.5.0-dev.2`, using the same decoder build. It is a development build for **Windows x64 / exact Bitwig Studio 6.1.7**, using Patchbay `0.36.0-dev.14`. macOS and other host versions are not supported.
 
-See [VALIDATION_LAUNCHER.md](VALIDATION_LAUNCHER.md) for completed checks and the remaining native reopen gate.
+See [VALIDATION_LAUNCHER.md](VALIDATION_LAUNCHER.md) for completed checks and their limits.
 
 ## Package contract
 
 - Keep the technical ID and top-level directory `video-preview` stable. The public display name is Native Video Track.
 - The default branch exposes `video-preview/mod.json`. Source and built manifests share all metadata; Modkit adds the built hooks and targets.
 - Name the installable asset `video-preview-<version>.zip`. It contains exactly one `video-preview/` directory, the built helper JAR, resources, source and notices.
+- The public MOD ZIP contains no third-party player binaries. `player/README.txt` describes the verified first-use download. Local EXE build output must not be uploaded as this asset.
 - Attach it to a published GitHub Release, optionally marked prerelease. Drafts and GitHub's automatic source ZIP are not installable catalog entries.
 - Keep checksums outside the MOD ZIP. Do not use a leading `v` or `+build` in the asset version. Release tags may use `v`.
 - The checked Launcher 0.9.2 does not filter by OS/architecture. Do not publish a Mac asset under the same ID/version and expect platform selection.
@@ -21,9 +22,10 @@ The declared framework versions preserve the existing tested set: Actions and Me
 
 ```text
 python tools/check_repository.py
+python tools/test_player_runtime.py --online
 python tools/build_source.py mod
 python tools/package_launcher.py
-python tools/build_source.py prepare
+python tools/build_source.py prepare --mod-zip releases/launcher/video-preview-0.5.0-dev.3.zip
 ```
 
 `package_launcher.py` produces a local candidate and a SHA-256 file under `releases/launcher/`. Local packaging is not a declaration that all public-release gates have passed. `python tools/build_source.py all` separately builds and verifies the persistent EXE route; it does not install it.
@@ -33,10 +35,18 @@ Before publishing an installable asset:
 1. Validate the candidate with the actual Launcher archive checker and installer. Exercise catalog selection, dependency resolution, update and failed-install recovery in temporary directories.
 2. Prepare against a disposable **original** compatible host. Verify import, multi-video playback, scrub, split/undo, save, normal exit, reopen and continued editing. Check layout settings, collected media and disable/re-enable recovery.
 3. Record what was tested, exact dependency versions and remaining limits. Do not present historical `VALIDATION_*.md` reports as a new runtime acceptance pass.
-4. Supply complete redistribution notices and matching source/build materials for every bundled third-party component. The pinned private mpv archive currently contains a manual and image, but not a complete corresponding-source bundle; the public binary gate is pending. Source publication is independent of this gate.
+4. Verify the public ZIP contains only the MOD, project source and notices. The player is obtained directly from its upstream release; verify the pinned download, extracted file hashes, offline reuse and failure recovery. Do not silently replace this with bundled media binaries.
 5. Publish the immutable candidate and its checksum. Verify the public download and manifest against the locally tested files.
 
-The player-bearing EXE has the same third-party release gate. Do not upload Bitwig's SDK, map-generated host overlays or user projects as release assets.
+The separate player-bearing EXE still requires complete matching third-party redistribution materials before public release; its local archive currently does not supply those materials. This prerelease publishes only the MOD ZIP and its checksum. Do not upload Bitwig's SDK, map-generated host overlays or user projects as release assets.
+
+## First-use player setup
+
+`PlayerRuntime` obtains the unchanged shinchiro `20261111` Windows x64 mpv archive (34,181,485 bytes) from the pinned URL in `video-preview/package/player/README.txt`. It verifies the archive's SHA-256 before extracting only `mpv.exe`, `mpv.com` and `d3dcompiler_43.dll`, then verifies each file before activating the cache. Upstream installer and updater scripts are never run. This preserves the codec build used in previous video tests.
+
+Setup runs on the existing media/preview workers, with progress in the preview/import status. It uses the host's existing Java HTTPS implementation and the system `tar.exe`, without changing global proxy or TLS settings. The final cache is `%LOCALAPPDATA%/BitwigVideo/player/20261111-bcde6b93cc/`; it is outside the replaceable MOD package and the project. Settings and project media do not live in this cache. Each process verifies the files on first use; subsequent requests reuse their verified file fingerprints.
+
+Concurrent callers and processes share one download. A failed download, checksum, extraction or cancellation does not activate incomplete files or insert an import clip. Repeat the import after fixing the connection; an existing project's unavailable preview also retries. A complete cache works without networking. An update or disabling/removing the MOD leaves the cache and collected media in place. If a different machine has no cache, its first video use still requires Internet access even when the project media was collected.
 
 ## Launcher installation route
 
@@ -44,7 +54,7 @@ After a validated MOD asset is published, add source `Amo-Nova/native-video-trac
 
 Launcher discovers assets by stable MOD ID and selects the highest available version across enabled sources. Disable conflicting fork sources if they publish the same ID. Installing an update replaces the package; it must not delete project media. A failed staged installation must leave the previous package usable.
 
-This source repository alone does not make the MOD appear as installable. Until an installable release exists, maintainers must build locally using the pinned dependencies.
+The release asset, rather than the source repository alone, makes the MOD installable in the Launcher.
 
 ## Persistent EXE route and switching
 

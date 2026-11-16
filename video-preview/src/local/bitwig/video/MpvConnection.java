@@ -57,6 +57,7 @@ final class MpvConnection implements AutoCloseable {
         this(player, log, visible, 0);
     }
     MpvConnection(Path player, Path log, boolean visible, long parentWindow) throws Exception {
+        player = PlayerRuntime.ensure(player);
         String pipeName = "\\\\.\\pipe\\bitwig-video-" + ProcessHandle.current().pid() + "-" + UUID.randomUUID();
         List<String> args = new ArrayList<>(List.of(player.resolve("mpv.exe").toString(),
             "--no-config", "--load-scripts=no", "--idle=yes", "--pause=yes", "--keep-open=yes",

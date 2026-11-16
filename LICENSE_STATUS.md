@@ -4,4 +4,4 @@ Project-owned source and documentation are licensed under the [MIT License](LICE
 
 Third-party source, tools and binaries retain their original licenses. The MIT license does not cover Bitwig Studio, mpv, FFmpeg, libplacebo, JNA, Gson or Microsoft runtime components. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [CREDITS.txt](CREDITS.txt) and `licenses/`.
 
-The Git repository contains source, not the proprietary host or media player binaries. Public binary releases require the corresponding third-party redistribution materials described in [RELEASING.md](RELEASING.md).
+The Git repository and public Launcher MOD ZIP contain no proprietary host or third-party media player binaries. The MOD downloads the pinned player directly from upstream on first use; its original licenses still apply. The separate locally built player-bearing EXE requires the corresponding third-party redistribution materials before public release, as described in [RELEASING.md](RELEASING.md).

@@ -15,6 +15,8 @@ from check_repository import ROOT, MOD_ID, VERSION_RE, read_manifest, require
 ROOT_FILES = {'mod.json', 'helper.jar', 'actions.properties', 'video.svg', 'build.json',
               'README.md', 'THIRD_PARTY.md', 'LICENSE', 'LICENSE_STATUS.md', 'CREDITS.txt',
               'THIRD_PARTY_NOTICES.md', 'RELEASING.md'}
+PRIVATE_PLAYER_FILES = {'player/mpv.exe', 'player/mpv.com', 'player/d3dcompiler_43.dll',
+                        'player/doc/manual.pdf', 'player/doc/mpbindings.png'}
 
 
 def sha(path):
@@ -33,8 +35,7 @@ def allowed(path):
     if parts[0] == 'licenses':
         return len(parts) == 2 and path.endswith(('.txt', '.md'))
     if parts[0] == 'player':
-        return path in ('player/mpv.exe', 'player/mpv.com', 'player/d3dcompiler_43.dll',
-                        'player/doc/manual.pdf', 'player/doc/mpbindings.png')
+        return path == 'player/README.txt'
     return False
 
 
@@ -71,16 +72,17 @@ def validate(archive):
                 require((MOD_ID + '/' + resource['path']).lower() in names, 'Missing declared resource')
         with zipfile.ZipFile(io.BytesIO(z.read(MOD_ID + '/helper.jar'))) as helper:
             require('local/bitwig/video/VideoHooks.class' in helper.namelist(), 'Video hooks absent from helper JAR')
+            require('local/bitwig/video/PlayerRuntime.class' in helper.namelist(), 'Verified player setup absent from helper JAR')
             require(not any(n.startswith(('com/bitwig/', 'com/bitwigre/')) for n in helper.namelist()), 'Host classes must not be distributed')
-        lock = json.loads((ROOT / 'dependencies.lock.json').read_text(encoding='utf-8'))
-        for item in lock['files']:
-            if item['root'] == 'mpv_root':
-                payload = z.read(MOD_ID + '/player/' + item['path'])
-                require(hashlib.sha256(payload).hexdigest() == item['sha256'], 'Player differs from pinned build')
+        require((MOD_ID+'/player/README.txt').lower() in names, 'Missing first-use download instructions')
+        runtime_source = MOD_ID+'/src/local/bitwig/video/PlayerRuntime.java'
+        require(runtime_source.lower() in names, 'Missing player provisioning source')
+        require(z.read(runtime_source) == (ROOT / 'video-preview/src/local/bitwig/video/PlayerRuntime.java').read_bytes(), 'Player setup source is stale; rebuild')
         require(z.read(MOD_ID + '/LICENSE') == (ROOT / 'LICENSE').read_bytes(), 'Project license missing or changed')
     return {'asset': archive.name, 'version': version, 'bytes': archive.stat().st_size,
             'sha256': sha(archive), 'files': len(names), 'uncompressedBytes': size,
-            'publicBinaryReady': False, 'releaseGates': 'See RELEASING.md; packaging checks do not complete runtime or redistribution gates.'}
+            'playerDelivery': 'verified-first-use-download', 'bundledPlayerBinaries': False,
+            'releaseGates': 'Package validated; native acceptance is recorded separately in VALIDATION_LAUNCHER.md.'}
 
 
 def package(output):
@@ -98,6 +100,8 @@ def package(output):
                 if not path.is_file():
                     continue
                 rel = path.relative_to(folder).as_posix()
+                if rel in PRIVATE_PLAYER_FILES:
+                    continue  # Local EXE builds may retain these; a public MOD ZIP never includes them.
                 require(not path.is_symlink() and allowed(rel), 'Unexpected build output: ' + rel)
                 entry = zipfile.ZipInfo(f'{MOD_ID}/{rel}', (2026, 11, 16, 0, 0, 0))
                 entry.compress_type = zipfile.ZIP_DEFLATED
