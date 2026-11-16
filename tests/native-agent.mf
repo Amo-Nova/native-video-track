@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Agent-Class: local.bitwig.video.test.NativeAcceptanceAgent
+Main-Class: local.bitwig.video.test.NativeAcceptanceAgent
+

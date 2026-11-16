@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.20)
+project(VideoNativeAcceptance LANGUAGES CXX)
+add_library(video_acceptance SHARED agent.cpp)
+target_include_directories(video_acceptance PRIVATE "C:/Program Files/Microsoft/jdk-25.0.2.10-hotspot/include" "C:/Program Files/Microsoft/jdk-25.0.2.10-hotspot/include/win32")
+target_compile_features(video_acceptance PRIVATE cxx_std_17)

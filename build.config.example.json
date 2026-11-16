@@ -1,0 +1,7 @@
+{
+  "format": 1,
+  "java_home": "C:/SDK/jdk-25",
+  "bitwig_bin": "C:/SDK/Bitwig-6.1.7/bin",
+  "patchbay_root": "vendor/Patchbay-0.36.0-dev.14/BML-0.36.0-dev.14-windows",
+  "mpv_root": "vendor/mpv"
+}

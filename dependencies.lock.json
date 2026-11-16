@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "patchbay": "0.36.0-dev.14",
+  "mpvBuild": "20261111-bcde6b93cc",
+  "files": [
+    {
+      "root": "bitwig_bin",
+      "path": "bitwig.jar",
+      "sha256": "a5b303466cf66a80e0fd7df00e49fb14eb41c23e59d30b300c0554b6769b3367"
+    },
+    {
+      "root": "bitwig_bin",
+      "path": "libs.jar",
+      "sha256": "f7b857c77ac67607daa8b02b502f51229c186a0a1c870e1f857bb331ceb23885"
+    },
+    {
+      "root": "mpv_root",
+      "path": "mpv.exe",
+      "sha256": "3ea89fe7a4284b25dff3c72e1bde83e27324c90cfc4a074fe679293d19ee7c85"
+    },
+    {
+      "root": "mpv_root",
+      "path": "mpv.com",
+      "sha256": "19a8feec834087fbad317259d1b951f37b821c72c58f212b4853e04080db5b0a"
+    },
+    {
+      "root": "mpv_root",
+      "path": "d3dcompiler_43.dll",
+      "sha256": "4b074a3976399dc735484f5d43d04b519b7bdee8ac719d9ab8ed6bd4e6be0345"
+    },
+    {
+      "root": "patchbay_root",
+      "path": "modkit/bml-modkit.jar",
+      "sha256": "67377ec1ca657b07fa2d9ebdef447a00b5d7c4f58fb7358e5b44ca50e7520258"
+    },
+    {
+      "root": "patchbay_root",
+      "path": "modkit/bml-api.jar",
+      "sha256": "276d9c6d0d7e7a88a147eb998beb65576bee16a5b2098becd1f16b4e8db88ebc"
+    },
+    {
+      "root": "patchbay_root",
+      "path": "loader/app/bml-control.jar",
+      "sha256": "d505469a60c789b137ac9ecd5ca583e9fe76b7283e82f2e08fd3663ac9489c01"
+    },
+    {
+      "root": "patchbay_root",
+      "path": "mods/action-menu-composition-framework/helper.jar",
+      "sha256": "a264c827f0f4614e01087eb0e980b7670dbe5e1a34ba0502db3dba583a08d70f"
+    },
+    {
+      "root": "patchbay_root",
+      "path": "mods/panel-management-framework/helper.jar",
+      "sha256": "0943816a1ce9d3f8dfa4b39726edd44247df5c0925835b3934c4b2d4f84d80f2"
+    },
+    {
+      "root": "patchbay_root",
+      "path": "mods/preferences-composition-framework/helper.jar",
+      "sha256": "536470641360bdb2382e5c93ce80dc4ee7fc0db84b4cdc11adc6779884658f31"
+    },
+    {
+      "root": "patchbay_root",
+      "path": "maps/windows-6.1.7-map1/map.json",
+      "sha256": "36091f68e62f47de5c15f25c404e1757cb160fdfb07791ab95d54ac2cb6fe72a"
+    }
+  ]
+}

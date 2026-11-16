@@ -1,0 +1,43 @@
+Native Video Track
+Unofficial video integration for Bitwig Studio
+
+Host application
+Bitwig Studio — Bitwig GmbH
+https://www.bitwig.com/
+
+Modding foundation
+Patchbay/BML and its Actions and Menus, Panels and Settings frameworks — shaboogen
+https://github.com/shaboogen-dev/Patchbay
+The installed integration uses Patchbay-derived hooks and runtime helpers.
+Persistent installation and the video workflow were developed for this project.
+
+Media playback and processing
+mpv project and contributors
+https://mpv.io/
+Windows mpv builds — shinchiro
+https://github.com/shinchiro/mpv-winbuild-cmake
+FFmpeg contributors
+https://ffmpeg.org/
+libplacebo contributors
+https://code.videolan.org/videolan/libplacebo
+
+Java integration
+JNA project and contributors — native Windows interfaces
+https://github.com/java-native-access/jna
+Gson — Google and contributors — JSON serialization
+https://github.com/google/gson
+JNA, Gson and the Java runtime are supplied by the user's Bitwig installation.
+
+Project work
+Video workflow, synchronization, media management, docking and persistent
+installation: Amo Nova, with OpenAI Codex assistance.
+Windows installer interface: .NET Framework / Windows Forms (Microsoft).
+Inspiration, introduction and repository/Launcher packaging blueprint: Polarity.
+https://github.com/polarity/bitwig-mods
+Workflow references: REAPER (Cockos) and Logic Pro (Apple).
+No Polarity devices, REAPER code/codec DLLs or Logic Pro code are included.
+
+This local development installer is not affiliated with or endorsed by
+Bitwig GmbH. It requires an existing compatible Bitwig installation.
+Upstream license notices are preserved inside the installed component.
+Installer source 1.0.0-dev.3 / Integration 1.0.0-dev.1 / Video MOD 0.5.0-dev.3
