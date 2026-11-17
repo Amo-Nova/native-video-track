@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "importDate": "2026-11-17",
+  "version": "0.5.0-dev.14",
+  "contributedBy": "Amo Nova",
+  "macTestingAndContributions": {
+    "name": "AUPhui",
+    "url": "https://github.com/AUPhui",
+    "githubId": 142559700
+  },
+  "runtimeValidation": "Contributor-reported Apple Silicon testing; no independent Mac runtime during Windows import",
+  "inputArchives": {
+    "source": {
+      "archive": "NativeVideoTrack-Mac-Source-0.5.0-dev.14.zip",
+      "sha256": "e763c2b1051311664d7fc1d02b55c5a499c81a8c8aaba5679cc176eaeb481bf8",
+      "bytes": 69332,
+      "uncompressedBytes": 156998
+    },
+    "mod": {
+      "archive": "video-preview-0.5.0-dev.14-macos.zip",
+      "sha256": "d629c0a1025fadcc3da52a2f1d2c7584334c760b344eba0c4b4679ac0081232d",
+      "bytes": 119909,
+      "uncompressedBytes": 203489
+    }
+  },
+  "preservedSourceFiles": {
+    "compose_remap.py": "f220bc7a280cf590678f35cb0f3b373a8816885c21e178ff9b982ac0e92e2a41",
+    "persistent/InstalledRuntime.java": "a6fd264e3d391a30f230f1bfb211298b0bedd7128d42bfb7cf29709391b4910b",
+    "persistent/persistent_install.py": "202da4daae2722fec25cd4dc1c9087e837cd08d1594616ed276ad5b276f67f18",
+    "video-preview/build.json": "b074035401750e0cb841e5b2026c833c09bb83413f0d1ec34bcd61c2472c7e9c",
+    "video-preview/logs/.keep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "video-preview/mod.json": "9cf7e948e9d2bffe727a7bc151e36e34a0b4a48511fd04378f4fcc9999fd9657",
+    "video-preview/package/actions.properties": "ccaa1e67151ecf8bd24289cdc6dac3cf5cbadcc235c83811a308d14696a01d77",
+    "video-preview/package/logs/.keep": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "video-preview/package/video.svg": "f09a758b4f640790fe81f9edfc3d748f536bdd508bc9fb1ca2e09b3f9fac8f7b",
+    "video-preview/src/local/bitwig/video/AbsoluteTime.java": "61e75a59dc4aaf88b2123fb9ac326248cde91809971c37eef771755a162aa4e6",
+    "video-preview/src/local/bitwig/video/BitwigBridge.java": "534d17f65fe2d2378c94ef4b6cbe155b347a2277335deba29129c5b6bd15f09d",
+    "video-preview/src/local/bitwig/video/DockHost.java": "cc80c18794485ad1fed6235d9d49344b9760256c6df94869f063fda9718de805",
+    "video-preview/src/local/bitwig/video/MediaAssets.java": "cea0236289be0e25ccf9c84c7ae3561c54aa93a14809c1be43671c177a5fd831",
+    "video-preview/src/local/bitwig/video/MpvBin.java": "b75bba49999e3e6fe1695927a1078c121e054f2ceee578c55cb9e1c86274d646",
+    "video-preview/src/local/bitwig/video/MpvConnection.java": "9ad7ca29029ef8a2570d3ff24beb3fcb3d04d95ba9e5f02e0c125d5d8307eb40",
+    "video-preview/src/local/bitwig/video/MpvEngine.java": "02f63b6934e1fd1435cd59e0dff10e2efbd02bdfc4c55da2cef40465a06db7e9",
+    "video-preview/src/local/bitwig/video/PreviewPlacement.java": "1c0b33f51bfe1b497a5ffe5db33cd561e29416c2d4d1be3b3cfa22ac0ccc4a9c",
+    "video-preview/src/local/bitwig/video/ScrubCadence.java": "cb5b6fb5e7ec4f30ccf49f41eebf9a05b2196b4acf1a737fdef9909cec17413f",
+    "video-preview/src/local/bitwig/video/TransportTime.java": "9f268d7d491679b2de4f024d58e9fdc32b71fe7309938b56d3764de8b06574d1",
+    "video-preview/src/local/bitwig/video/VideoActions.java": "8b282c93e113aab95ad0682ae100a105992e516af29dacfba0bba269ec2a0fd1",
+    "video-preview/src/local/bitwig/video/VideoConfig.java": "69cc15cc10b67e8aa713309222535f23360b71104a7024461465025ba0bded39",
+    "video-preview/src/local/bitwig/video/VideoHooks.java": "d0997c0b2a9d93ccfec3950bbe5f37c0487a5254494b2413620c14651bb3344a",
+    "video-preview/src/local/bitwig/video/VideoLayout.java": "9effe2d4bba63753bd9149766ba9dcf828179e29e359897ef523d4232bb7a9d2",
+    "video-preview/src/local/bitwig/video/VideoTimeline.java": "4959cb316a586c81739938358b83d4908873eba6ecbd358b65b98ca674a35ee2"
+  },
+  "preservedModFiles": {
+    "actions.properties": "ccaa1e67151ecf8bd24289cdc6dac3cf5cbadcc235c83811a308d14696a01d77",
+    "build.json": "b074035401750e0cb841e5b2026c833c09bb83413f0d1ec34bcd61c2472c7e9c",
+    "helper.jar": "0182747df9d71afb289395e3cd9b851d327796fabb6a826d0239c97621f260d6",
+    "logs/.keep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mod.json": "9f45665a7a2bf005f9a3a4f853ed7ef6c9496f075afaf04dfadede2bf2752d4a",
+    "src/local/bitwig/video/AbsoluteTime.java": "61e75a59dc4aaf88b2123fb9ac326248cde91809971c37eef771755a162aa4e6",
+    "src/local/bitwig/video/BitwigBridge.java": "534d17f65fe2d2378c94ef4b6cbe155b347a2277335deba29129c5b6bd15f09d",
+    "src/local/bitwig/video/DockHost.java": "cc80c18794485ad1fed6235d9d49344b9760256c6df94869f063fda9718de805",
+    "src/local/bitwig/video/MediaAssets.java": "cea0236289be0e25ccf9c84c7ae3561c54aa93a14809c1be43671c177a5fd831",
+    "src/local/bitwig/video/MpvBin.java": "b75bba49999e3e6fe1695927a1078c121e054f2ceee578c55cb9e1c86274d646",
+    "src/local/bitwig/video/MpvConnection.java": "9ad7ca29029ef8a2570d3ff24beb3fcb3d04d95ba9e5f02e0c125d5d8307eb40",
+    "src/local/bitwig/video/MpvEngine.java": "02f63b6934e1fd1435cd59e0dff10e2efbd02bdfc4c55da2cef40465a06db7e9",
+    "src/local/bitwig/video/PreviewPlacement.java": "1c0b33f51bfe1b497a5ffe5db33cd561e29416c2d4d1be3b3cfa22ac0ccc4a9c",
+    "src/local/bitwig/video/ScrubCadence.java": "cb5b6fb5e7ec4f30ccf49f41eebf9a05b2196b4acf1a737fdef9909cec17413f",
+    "src/local/bitwig/video/TransportTime.java": "9f268d7d491679b2de4f024d58e9fdc32b71fe7309938b56d3764de8b06574d1",
+    "src/local/bitwig/video/VideoActions.java": "8b282c93e113aab95ad0682ae100a105992e516af29dacfba0bba269ec2a0fd1",
+    "src/local/bitwig/video/VideoConfig.java": "69cc15cc10b67e8aa713309222535f23360b71104a7024461465025ba0bded39",
+    "src/local/bitwig/video/VideoHooks.java": "d0997c0b2a9d93ccfec3950bbe5f37c0487a5254494b2413620c14651bb3344a",
+    "src/local/bitwig/video/VideoLayout.java": "9effe2d4bba63753bd9149766ba9dcf828179e29e359897ef523d4232bb7a9d2",
+    "src/local/bitwig/video/VideoTimeline.java": "4959cb316a586c81739938358b83d4908873eba6ecbd358b65b98ca674a35ee2",
+    "uses.tsv": "80ec44fd9bfc96572e164abfcc969ec574ef4c413096142d779183887ff4814a",
+    "video.svg": "f09a758b4f640790fe81f9edfc3d748f536bdd508bc9fb1ca2e09b3f9fac8f7b"
+  },
+  "publicationChanges": [
+    "English documentation and corrected platform dependency notes",
+    "MIT license and project/AUPhui credits",
+    "Complete checksums and source provenance",
+    "build_mac.py packaging only: include license/credits and hash all files"
+  ],
+  "distribution": "Manual Patchbay Add Mod; keep -macos.zip suffix to preserve Windows Launcher catalog"
+}

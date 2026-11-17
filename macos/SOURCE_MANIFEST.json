@@ -1,0 +1,149 @@
+{
+  "format": 1,
+  "videoVersion": "0.5.0-dev.14",
+  "bitwigVersion": "6.1.7",
+  "platform": "macos",
+  "architecture": "arm64",
+  "files": [
+    {
+      "path": "build_mac.py",
+      "sha256": "cba5ddab76f62cae6dcf75a82e7ed587ba34db4ee80eebba88b2804992ba7c47"
+    },
+    {
+      "path": "BUILDING.md",
+      "sha256": "e02f39dcd7311ceb2ba6b62034b70ea8b62018e7b54cc874c90a808d58e415d3"
+    },
+    {
+      "path": "compose_remap.py",
+      "sha256": "f220bc7a280cf590678f35cb0f3b373a8816885c21e178ff9b982ac0e92e2a41"
+    },
+    {
+      "path": "CREDITS.txt",
+      "sha256": "cd0522a797e6749b773d99186eb0d56db692c88f5d3e55e6c17fd3e3c9ca674e"
+    },
+    {
+      "path": "IMPORT_PROVENANCE.json",
+      "sha256": "612cece8ecdc1f0905fa7faf89824e164a1a1c364efe921b846e8e42d95f42b1"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "10acd9d38ea7a7191a3d70f9740a27bd3b972db28d2c3ade4b8f7fe9e17cd517"
+    },
+    {
+      "path": "persistent/InstalledRuntime.java",
+      "sha256": "a6fd264e3d391a30f230f1bfb211298b0bedd7128d42bfb7cf29709391b4910b"
+    },
+    {
+      "path": "persistent/persistent_install.py",
+      "sha256": "202da4daae2722fec25cd4dc1c9087e837cd08d1594616ed276ad5b276f67f18"
+    },
+    {
+      "path": "PORTING.md",
+      "sha256": "20b352f43539b3ab486c956c040c723791e5c8e43ce572c3734cf59094880744"
+    },
+    {
+      "path": "README.md",
+      "sha256": "30141ed5e8b962d4db94af51a9f0371be08882ab632d38963dafb2487862a1f0"
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "bd65fcabca4b15209f3a5c7d79771e2bf54bbbd221fde7207d722cb3e4bd656c"
+    },
+    {
+      "path": "video-preview/build.json",
+      "sha256": "b074035401750e0cb841e5b2026c833c09bb83413f0d1ec34bcd61c2472c7e9c"
+    },
+    {
+      "path": "video-preview/logs/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "video-preview/mod.json",
+      "sha256": "9cf7e948e9d2bffe727a7bc151e36e34a0b4a48511fd04378f4fcc9999fd9657"
+    },
+    {
+      "path": "video-preview/package/actions.properties",
+      "sha256": "ccaa1e67151ecf8bd24289cdc6dac3cf5cbadcc235c83811a308d14696a01d77"
+    },
+    {
+      "path": "video-preview/package/logs/.keep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "video-preview/package/THIRD_PARTY.md",
+      "sha256": "14c6cb7d294c50b1ae343c1fdf9493ffd90da818d0c8e30898e1adbef03579db"
+    },
+    {
+      "path": "video-preview/package/video.svg",
+      "sha256": "f09a758b4f640790fe81f9edfc3d748f536bdd508bc9fb1ca2e09b3f9fac8f7b"
+    },
+    {
+      "path": "video-preview/player/README.txt",
+      "sha256": "65c50a4f27c39baa40b70a93f1ffe6e83edb928b33721760c899a1f959618f29"
+    },
+    {
+      "path": "video-preview/README.md",
+      "sha256": "d307e1263596085dd178e2babe8c8b56fa0ceccbac8c263577fcd134d68c22dc"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/AbsoluteTime.java",
+      "sha256": "61e75a59dc4aaf88b2123fb9ac326248cde91809971c37eef771755a162aa4e6"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/BitwigBridge.java",
+      "sha256": "534d17f65fe2d2378c94ef4b6cbe155b347a2277335deba29129c5b6bd15f09d"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/DockHost.java",
+      "sha256": "cc80c18794485ad1fed6235d9d49344b9760256c6df94869f063fda9718de805"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/MediaAssets.java",
+      "sha256": "cea0236289be0e25ccf9c84c7ae3561c54aa93a14809c1be43671c177a5fd831"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/MpvBin.java",
+      "sha256": "b75bba49999e3e6fe1695927a1078c121e054f2ceee578c55cb9e1c86274d646"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/MpvConnection.java",
+      "sha256": "9ad7ca29029ef8a2570d3ff24beb3fcb3d04d95ba9e5f02e0c125d5d8307eb40"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/MpvEngine.java",
+      "sha256": "02f63b6934e1fd1435cd59e0dff10e2efbd02bdfc4c55da2cef40465a06db7e9"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/PreviewPlacement.java",
+      "sha256": "1c0b33f51bfe1b497a5ffe5db33cd561e29416c2d4d1be3b3cfa22ac0ccc4a9c"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/ScrubCadence.java",
+      "sha256": "cb5b6fb5e7ec4f30ccf49f41eebf9a05b2196b4acf1a737fdef9909cec17413f"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/TransportTime.java",
+      "sha256": "9f268d7d491679b2de4f024d58e9fdc32b71fe7309938b56d3764de8b06574d1"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/VideoActions.java",
+      "sha256": "8b282c93e113aab95ad0682ae100a105992e516af29dacfba0bba269ec2a0fd1"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/VideoConfig.java",
+      "sha256": "69cc15cc10b67e8aa713309222535f23360b71104a7024461465025ba0bded39"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/VideoHooks.java",
+      "sha256": "d0997c0b2a9d93ccfec3950bbe5f37c0487a5254494b2413620c14651bb3344a"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/VideoLayout.java",
+      "sha256": "9effe2d4bba63753bd9149766ba9dcf828179e29e359897ef523d4232bb7a9d2"
+    },
+    {
+      "path": "video-preview/src/local/bitwig/video/VideoTimeline.java",
+      "sha256": "4959cb316a586c81739938358b83d4908873eba6ecbd358b65b98ca674a35ee2"
+    }
+  ]
+}

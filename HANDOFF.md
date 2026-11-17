@@ -2,6 +2,8 @@
 
 Repository candidate: Video 0.5.0-dev.3 / Integration 1.0.0-dev.1 / Setup source 1.0.0-dev.3. Video behavior is based on the 0.5.0-dev.2 snapshot dated 2026-11-16. See RELEASING.md for distribution status.
 
+Update 2026-11-17: the separate Apple Silicon `0.5.0-dev.14` source supplied by Amo Nova, with AUPhui's macOS testing and contributions, is now under `macos/`. Use its own [handoff](macos/README.md) and [build instructions](macos/BUILDING.md). The Windows behavior below is not a claim that the reduced Mac edition implements every Windows feature.
+
 ## First development session
 
 1. Build the unmodified snapshot using [BUILDING.md](BUILDING.md). This establishes the pinned baseline without touching a running host.
@@ -34,15 +36,15 @@ Historical JSON/TXT/log/project paths in the reports identify development eviden
 | Area | Current limit / next requirement |
 |---|---|
 | Bitwig 6.1.0 | No adaptation or runtime test. Select the exact host/map and revalidate every hook; do not bypass the version guard. |
-| Apple Silicon | No runnable Mac package. Replace Windows IPC/rendering/install boundaries and validate on an actual Mac. |
+| Apple Silicon | Contributed runnable `0.5.0-dev.14` package and source are available. Floating preview only; see `macos/VALIDATION.md` for contributor-reported testing and remaining verification. |
 | Long GOP | Confirmed nearby-frame reuse is faster, but uncached seeks and stop-time repositioning can still take hundreds of milliseconds. |
 | Physical AV latency | Software frame clocks and audio source mapping have been measured; no display/audio-device loopback calibration. |
 | Display coverage | Full mixed-DPI, multiple-monitor, modal-window and continuous visual stress coverage remains incomplete. |
 | VFR frame stepping | Time seeking has been tested; adjacent-frame controls still use nominal FPS rather than a complete PTS index. |
 | Installer UAC | Standard-user, alternate-admin credentials and cancellation flows are implemented but not fully interactively tested. |
 | Localization | Current application/installer UI includes Chinese literals. This handoff translates documentation only. |
-| Distribution | Project-owned source is MIT licensed. EXE is unsigned; public binary publication awaits player redistribution materials and release acceptance. |
+| Distribution | Project-owned source is MIT licensed. Windows and Mac MOD ZIPs exclude third-party player binaries. The separate Windows player-bearing EXE remains unpublished. |
 
 Thumbnails, transitions/compositing, video export, scene detection, a full SMPTE/drop-frame UI and optional tempo-following speed are not implemented.
 
-For a Mac test round, prepare one coherent candidate with version detection, synthetic media and log collection. The target is Apple Silicon; exact macOS and Bitwig versions still need to be selected. Preserve the Windows behavior and project format during the port. See [MAC_COMPATIBILITY.md](MAC_COMPATIBILITY.md).
+For further Mac work, start from the contributed `macos/` edition targeting Bitwig 6.1.7. Record the exact macOS/player versions and repeat the relevant workflows; those full environment details were not included in the handoff. Cross-platform project interchange and feature parity remain separate work. See [MAC_COMPATIBILITY.md](MAC_COMPATIBILITY.md).

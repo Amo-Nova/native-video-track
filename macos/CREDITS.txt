@@ -1,0 +1,36 @@
+Native Video Track — macOS Apple Silicon edition 0.5.0-dev.14
+
+Amo Nova — creator and maintainer
+Product direction, workflow decisions, Bitwig testing, community coordination
+and delivery of the tested Mac edition for this repository.
+https://github.com/Amo-Nova
+
+AUPhui — macOS testing and contributions
+Helped test and contribute to the Apple Silicon edition supplied by Amo Nova.
+https://github.com/AUPhui
+
+OpenAI Codex — AI coding assistant and co-contributor
+Collaborative architecture, implementation, debugging, testing and tooling
+for the original project; repository import, English documentation,
+attribution, package verification and publication of this Mac contribution.
+Windows-side import checks are distinct from the contributors' Mac testing.
+
+Foundations and references
+Bitwig Studio — Bitwig GmbH, the separately installed host
+Patchbay/BML and Actions and Menus — shaboogen and contributors
+https://github.com/shaboogen-dev/Patchbay
+mpv, FFmpeg and libplacebo — their respective projects and contributors
+https://mpv.io/
+https://ffmpeg.org/
+https://code.videolan.org/videolan/libplacebo
+Gson and JNA — supplied by the local Bitwig installation
+https://github.com/google/gson
+https://github.com/java-native-access/jna
+Polarity — inspiration and repository/Launcher packaging blueprint
+https://github.com/polarity/bitwig-mods
+REAPER and Logic Pro — workflow references; no code from them is included
+
+Project-owned source: MIT License, copyright (c) 2026 Amo Nova.
+Third-party dependencies retain their original licenses.
+No Bitwig or third-party player binaries are included in this MOD ZIP.
+Unofficial project; not affiliated with or endorsed by Bitwig GmbH.

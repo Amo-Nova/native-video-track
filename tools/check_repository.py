@@ -14,7 +14,8 @@ REQUIRES = {
     'preferences-composition-framework': '1.0.0',
 }
 GENERATED = {'.git', 'build', 'out', 'vendor', 'runtime', 'releases', '__pycache__',
-             'results', 'media', 'projects', 'runs', 'native-agent-build', 'native-agent-java'}
+             'results', 'media', 'projects', 'runs', 'native-agent-build', 'native-agent-java',
+             'pristine-bin', 'bml-check', 'patchbay-src'}
 
 
 def require(condition, message):
@@ -55,7 +56,7 @@ def main():
     count = 0
     for path in ROOT.rglob('*'):
         rel = path.relative_to(ROOT)
-        if not path.is_file() or any(p in GENERATED for p in rel.parts) or rel.parts[:2] == ('integration', 'package'):
+        if not path.is_file() or any(p in GENERATED for p in rel.parts) or rel.parts[:2] == ('integration', 'package') or rel.parts[:3] == ('macos', 'persistent', 'package'):
             continue
         if rel.name == 'build.config.local.json':
             continue
@@ -65,6 +66,8 @@ def main():
         if path.suffix == '.json':
             json.loads(path.read_text(encoding='utf-8-sig'))
         count += 1
+    from check_macos import check_source
+    check_source(ROOT / 'macos')
     print(f"REPOSITORY_OK files={count} id={MOD_ID} version={manifest['mod']['version']} license=MIT author=Amo-Nova")
 
 

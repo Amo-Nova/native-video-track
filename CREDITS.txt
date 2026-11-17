@@ -41,7 +41,14 @@ synchronization, absolute-time mapping, picture markers, preview docking,
 project media collection and recovery, persistent Windows integration,
 and Patchbay Launcher packaging.
 
-Developed collaboratively by Amo Nova and OpenAI Codex.
+AUPhui — macOS testing and contributions
+https://github.com/AUPhui
+Helped test and contribute to the Apple Silicon edition supplied by Amo Nova.
+The 0.5.0-dev.14 Mac source is preserved under macos/; import and publication
+checks are documented separately from the contributors' Mac runtime testing.
+
+Developed collaboratively by Amo Nova and OpenAI Codex,
+with macOS testing and contributions from AUPhui.
 Project-owned source: MIT License, copyright (c) 2026 Amo Nova.
 
 Windows installer interface: .NET Framework / Windows Forms (Microsoft).
@@ -50,7 +57,7 @@ https://github.com/polarity/bitwig-mods
 Workflow references: REAPER (Cockos) and Logic Pro (Apple).
 No Polarity devices, REAPER code/codec DLLs or Logic Pro code are included.
 
-This local development installer is not affiliated with or endorsed by
-Bitwig GmbH. It requires an existing compatible Bitwig installation.
-Upstream license notices are preserved inside the installed component.
-Installer source 1.0.0-dev.3 / Integration 1.0.0-dev.1 / Video MOD 0.5.0-dev.3
+This project is not affiliated with or endorsed by Bitwig GmbH.
+It requires an existing compatible Bitwig installation.
+Windows: Installer source 1.0.0-dev.3 / Integration 1.0.0-dev.1 / MOD 0.5.0-dev.3
+macOS Apple Silicon: MOD 0.5.0-dev.14 / supplied integration source 1.0.0-dev.3

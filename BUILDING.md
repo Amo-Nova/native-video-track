@@ -1,5 +1,7 @@
 # Build the Windows source snapshot
 
+For the separate Apple Silicon edition, use [macos/BUILDING.md](macos/BUILDING.md). These Windows commands do not compile or publish the Mac implementation.
+
 ## Prerequisites
 
 - Windows x64; this entry point currently rejects other platforms.

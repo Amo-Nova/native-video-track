@@ -2,6 +2,16 @@
 
 Repository: [Amo-Nova/native-video-track](https://github.com/Amo-Nova/native-video-track).
 
+## Separate macOS edition
+
+The contributed Apple Silicon `0.5.0-dev.14` edition is maintained under `macos/` and published as `v0.5.0-dev.14-macos`. Install `video-preview-0.5.0-dev.14-macos.zip` with **Mods → Add Mod…** in Patchbay. The source archive has the distinct name `NativeVideoTrack-Mac-Source-0.5.0-dev.14-macos.zip`.
+
+The extra `-macos` suffix deliberately keeps both ZIPs outside Launcher 0.9.2/0.9.4's automatic asset-version pattern. This preserves the existing Windows `video-preview` catalog entry. The Mac package retains its tested internal ID `video-preview`; do not rename the asset to `video-preview-0.5.0-dev.14.zip` without first implementing and validating a platform-aware distribution strategy. Launcher 0.9.4 adds compatibility metadata, but its catalog still selects the newest asset per ID before that compatibility check.
+
+Publication preserves the supplied helper JAR, all 15 runtime Java files, hooks and resource mappings. Only documentation, licenses, credits and package checksums are refreshed. Runtime testing was reported by Amo Nova with AUPhui's testing and contributions; import checks on Windows do not constitute a fresh Mac runtime pass. See [macos/VALIDATION.md](macos/VALIDATION.md). No player binary or persistent installer payload is published in this Mac release.
+
+The remaining sections describe the Windows release contract.
+
 The `0.5.0-dev.3` source introduces repository metadata, Launcher packaging and verified first-use player setup. Video behavior is based on `0.5.0-dev.2`, using the same decoder build. It is a development build for **Windows x64 / exact Bitwig Studio 6.1.7**, using Patchbay `0.36.0-dev.14`. macOS and other host versions are not supported.
 
 See [VALIDATION_LAUNCHER.md](VALIDATION_LAUNCHER.md) for completed checks and their limits.

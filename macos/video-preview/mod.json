@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "mod": {
+    "id": "video-preview",
+    "name": "Video: Timeline Preview",
+    "version": "0.5.0-dev.14",
+    "author": "AmoNova",
+    "description": "Native video carrier clips with a floating on-top mpv preview window that shows black when the playhead is on no video content. macOS (Apple silicon) / Bitwig 6.1.7; absolute-time clips keep their project-second position across tempo changes. Needs mpv: brew install mpv, or drop an mpv binary into the mod's player folder."
+  },
+  "built_against": {"bitwig_version": "6.1.7", "platform": "macos", "architecture": "universal"},
+  "resources": {
+    "ui": {"kind": "file", "path": "helper.jar"},
+    "video_icon": {"kind": "file", "path": "video.svg", "media_type": "image/svg+xml"},
+    "player": {"kind": "directory", "path": "player"},
+    "logs": {"kind": "directory", "path": "logs", "persistence": "preserve"}
+  },
+  "registrations": [
+    {"id": "actions", "consumer": "action-menu-composition-framework", "descriptor": "actions.properties", "jar": "helper.jar"}
+  ]
+}
